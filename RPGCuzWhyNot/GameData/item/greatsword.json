@@ -56,6 +56,25 @@
         "armorPiercing": 1,
         "transferSelf": "target"
       }
+    },
+    {
+      "hasTarget": true,
+      "callNames": [ "stabby" ],
+      "name": "Stabby",
+      "description": "Stabs the other guy with the force of a whole sword, and your wimpy arms",
+      "executeDescription": "You push very hard, while looking away. Garsh, there's blood on your body!",
+      "requirements": {
+        "stats": {
+          "strength": 10,
+          "accuracy": 10,
+          "speed": 10,
+          "fortitude" : -10
+        }
+      },
+      "effects": {
+        "projectileDamage": 50,
+        "armorPiercing": 1,
+      }
     }
   ]
 }

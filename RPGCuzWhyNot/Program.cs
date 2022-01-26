@@ -1,8 +1,10 @@
 using System;
 using RPGCuzWhyNot.Systems;
+using RPGCuzWhyNot.Systems.AttackSystem;
 using RPGCuzWhyNot.Systems.Data;
 using RPGCuzWhyNot.Systems.VirtualTerminal;
 using RPGCuzWhyNot.Things.Characters;
+using RPGCuzWhyNot.Things.Characters.NPCs;
 using RPGCuzWhyNot.Things.Characters.Races.Humanoids;
 using RPGCuzWhyNot.Things.Item;
 using RPGCuzWhyNot.Utilities;
@@ -49,6 +51,10 @@ namespace RPGCuzWhyNot {
 			player.Wielding.MoveItem((IWieldable)DataLoader.CreateItem("deluxe_debug_doodad"));
 			player.Wielding.MoveItem((IWieldable)DataLoader.CreateItem("greatsword"));
 
+			Fight fight = new Fight(player, DataLoader.GetNPC("orchibald"));
+			fight.BeginCombat();
+
+			DataLoader.GetLocation("village").AddItem((IItem)DataLoader.GetNPC("orchibald"));
 
 			//some basic event loop
 			player.location.PrintEnterInformation();

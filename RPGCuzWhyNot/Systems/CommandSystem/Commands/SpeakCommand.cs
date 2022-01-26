@@ -1,6 +1,7 @@
 using System;
 using RPGCuzWhyNot.Things;
 using RPGCuzWhyNot.Things.Characters;
+using RPGCuzWhyNot.Things.Characters.NPCs;
 
 namespace RPGCuzWhyNot.Systems.CommandSystem.Commands {
 	public class SpeakCommand : Command {
@@ -18,7 +19,10 @@ namespace RPGCuzWhyNot.Systems.CommandSystem.Commands {
 			|| Program.player.location.GetCharacterByCallName(callName, out conversationPartner)) {
 				Terminal.WriteLine($"{{fg:Cyan}}(A conversation with [{conversationPartner.Name}] has begun:)");
 
-				throw new NotImplementedException();
+				if (conversationPartner is NPC npc)
+				{
+					npc.Converse(Program.player, "I want to say...");
+				}
 			} else {
 				Terminal.WriteLine("Who now?");
 			}

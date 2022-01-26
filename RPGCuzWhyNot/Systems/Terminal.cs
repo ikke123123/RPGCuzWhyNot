@@ -86,7 +86,7 @@ namespace RPGCuzWhyNot.Systems {
 		public static void Write(string text, int frequency, int charsPerSecond = -1) {
 			using (PushState()) {
 				if (charsPerSecond < 0) {
-					MillisPerChar = 1000 / charsPerSecond;
+					MillisPerChar = 1000 / -charsPerSecond;
 				}
 				BeepFrequency = frequency;
 				Write(text);
